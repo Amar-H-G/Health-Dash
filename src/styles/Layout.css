@@ -60,52 +60,72 @@
 }
 
 
-/* Responsive (Tablet) */
+/* Responsive (Smaller Laptops & Tablets - DO NOT WRAP, JUST SHRINK) */
 @media (max-width: 1200px) {
   .layout__body {
-    grid-template-columns: 240px 1fr 260px;
+    grid-template-columns: 230px 1fr 240px;
   }
 }
 
 @media (max-width: 1024px) {
-  .layout {
-    height: auto;
-    overflow: auto;
+  .layout__body {
+    grid-template-columns: 200px 1fr 210px;
   }
   
-  .layout__body {
-    grid-template-columns: 220px 1fr;
-    grid-template-rows: auto auto;
+  /* Make sure internal content scales nicely if squished */
+  .vitals-row {
+    grid-template-columns: repeat(3, 1fr); /* Stay in row but squish */
   }
-
-  .layout__right {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    flex-wrap: wrap;
+  
+  .stat-card {
+    padding: var(--space-md);
   }
-
-  .profile-card,
-  .lab-results {
-    flex: 1;
-    min-width: 280px;
+  
+  .stat-card__icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .stat-card__value {
+    font-size: var(--fs-24);
   }
 }
 
-/* Responsive (Mobile) */
-@media (max-width: 768px) {
+/* Responsive (Mobile - NOW THEY WRAP/STACK) */
+@media (max-width: 800px) {
+  .layout {
+    height: auto;
+    overflow-y: auto;
+  }
+
   .layout__body {
     grid-template-columns: 1fr;
   }
 
+  /* Unstick the sidebars since they are now stacked normally */
+  .layout__sidebar,
   .layout__right {
-    flex-direction: column;
-  }
-
-  .header__nav {
-    display: none;
+    position: static;
+    height: auto;
   }
 
   .vitals-row {
     grid-template-columns: 1fr;
+  }
+
+  .bp-chart-card__body {
+    flex-direction: column;
+  }
+
+  .bp-chart-card__legend {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+/* Mobile Header adjustments */
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
   }
 }
