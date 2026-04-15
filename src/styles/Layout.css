@@ -4,11 +4,18 @@
 .layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   background: var(--color-bg);
   padding: var(--space-md);
   gap: var(--space-md);
-  overflow: hidden;        /* Kills full screen scroll */
+  overflow-y: auto;        /* Enable global scrolling */
+  scrollbar-width: none;   /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.layout::-webkit-scrollbar {
+  display: none;
 }
 
 .layout__header {
