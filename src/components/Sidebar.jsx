@@ -33,7 +33,7 @@ const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
         return;
       }
 
-      const thumbHeight = Math.max((clientHeight / scrollHeight) * trackHeight, 36);
+      const thumbHeight = 64; // Exact small size from design reference
       const maxThumbOffset = Math.max(trackHeight - thumbHeight, 0);
       const maxScrollTop = Math.max(scrollHeight - clientHeight, 1);
       const thumbOffset = (scrollTop / maxScrollTop) * maxThumbOffset;
