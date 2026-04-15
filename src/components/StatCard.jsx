@@ -5,7 +5,7 @@ import "../styles/DiagnosisHistory.css";
 
 const LungsIcon = () => (
   <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="45" cy="45" r="45" fill="#E8F5FA" />
+    <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
     <g transform="translate(18, 18)">
       {/* Lungs illustration */}
       <path
@@ -39,7 +39,7 @@ const LungsIcon = () => (
 
 const ThermometerIcon = () => (
   <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="45" cy="45" r="45" fill="#FFE8E8" />
+    <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
     <g transform="translate(27, 15)">
       {/* Thermometer body */}
       <rect x="13" y="0" width="10" height="40" rx="5" fill="none" stroke="#FF6B6B" strokeWidth="2" />
@@ -59,7 +59,7 @@ const ThermometerIcon = () => (
 
 const HeartRateIcon = () => (
   <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="45" cy="45" r="45" fill="#FFE8F0" />
+    <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
     <g transform="translate(15, 18)">
       {/* Heart */}
       <path

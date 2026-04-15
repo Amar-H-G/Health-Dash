@@ -129,12 +129,12 @@ export const jessicaTaylorData = {
 
   // Blood Pressure - Last 6 months
   bloodPressureHistory: [
-    { month: "Oct, 2023", systolic: 120, diastolic: 80 },
-    { month: "Nov, 2023", systolic: 160, diastolic: 100 },
-    { month: "Dec, 2023", systolic: 150, diastolic: 95 },
-    { month: "Jan, 2024", systolic: 130, diastolic: 85 },
-    { month: "Feb, 2024", systolic: 140, diastolic: 90 },
-    { month: "Mar, 2024", systolic: 160, diastolic: 78 },
+    { month: "Oct, 2023", systolic: 120, diastolic: 108 },
+    { month: "Nov, 2023", systolic: 116, diastolic: 65 },
+    { month: "Dec, 2023", systolic: 160, diastolic: 108 },
+    { month: "Jan, 2024", systolic: 112, diastolic: 91 },
+    { month: "Feb, 2024", systolic: 149, diastolic: 70 },
+    { month: "Mar, 2024", systolic: 158, diastolic: 78 },
   ],
 
   // Latest blood pressure values shown on chart

@@ -4,33 +4,36 @@
 .diagnosis-history {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 22px;
   min-width: 0;
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
 }
 
 .diagnosis-history__title {
-  font-size: 30px;
+  font-size: 32px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  line-height: 41px;
+  line-height: 1.1;
 }
 
 .bp-chart-card {
-  background: var(--color-white);
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: var(--shadow-card);
+  background: #f4f0ff;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
 }
 
 .bp-chart-card__header {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .bp-chart-card__title {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: var(--fw-bold);
   color: var(--color-text-dark);
 }
@@ -54,26 +57,27 @@
 }
 
 .bp-chart-card__body {
-  display: flex;
-  gap: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 18px;
   align-items: stretch;
 }
 
 .bp-chart-card__chart {
   flex: 1;
   min-width: 0;
-  height: 265px;
+  height: 246px;
   position: relative;
 }
 
 .bp-chart-card__legend {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 16px;
   justify-content: flex-start;
   flex-shrink: 0;
-  min-width: 178px;
-  padding-top: 10px;
+  min-width: 0;
+  padding: 2px 0 0 6px;
 }
 
 .bp-legend-item__indicator {
@@ -105,10 +109,10 @@
 }
 
 .bp-legend-item__value {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  line-height: 41px;
+  line-height: 1.1;
   margin-bottom: 4px;
 }
 
@@ -138,16 +142,16 @@
 .vitals-row {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
 .stat-card {
-  border-radius: 16px;
-  padding: 16px;
+  border-radius: 18px;
+  padding: 18px 18px 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  min-height: 242px;
+  gap: 10px;
+  min-height: 270px;
 }
 
 .stat-card--respiratory {
@@ -163,28 +167,28 @@
 }
 
 .stat-card__icon-wrapper {
-  width: 96px;
-  height: 96px;
+  width: 112px;
+  height: 112px;
 }
 
 .stat-card__icon-wrapper svg {
-  width: 96px;
-  height: 96px;
+  width: 112px;
+  height: 112px;
 }
 
 .stat-card__label {
   margin-top: auto;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: var(--fw-medium);
   color: var(--color-text-dark);
   line-height: 24px;
 }
 
 .stat-card__value {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  line-height: 41px;
+  line-height: 1.15;
 }
 
 .stat-card__status {
@@ -205,9 +209,9 @@
 .diagnostic-list {
   background: var(--color-white);
   border-radius: 16px;
-  padding: 20px;
-  box-shadow: var(--shadow-card);
+  padding: 4px 0 0;
   min-width: 0;
+  box-shadow: none;
 }
 
 .diagnostic-list__title {
@@ -305,7 +309,7 @@
   }
 
   .bp-chart-card__body {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 
   .bp-chart-card__legend {
@@ -327,7 +331,8 @@
 
 @media (max-width: 767px) {
   .diagnosis-history {
-    gap: 12px;
+    gap: 14px;
+    padding: 16px;
   }
 
   .diagnosis-history__title,
