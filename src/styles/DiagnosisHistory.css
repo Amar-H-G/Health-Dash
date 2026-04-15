@@ -229,8 +229,8 @@
 }
 
 .diagnostic-table-wrapper {
-  max-height: 400px;
-  overflow-y: auto;
+  max-height: 300px;
+  overflow-y: scroll;      /* Force scrollbar to show */
   margin-top: var(--space-md);
   padding-right: 8px;
 }
