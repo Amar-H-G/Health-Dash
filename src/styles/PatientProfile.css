@@ -118,10 +118,10 @@
   border-radius: 18px;
   padding: 24px 20px 20px;
   box-shadow: var(--shadow-card);
-  height: clamp(300px, 34vh, 368px);
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  flex: 1;
+  min-height: 0;
 }
 
 .lab-results__title {
@@ -148,7 +148,7 @@
 }
 
 .lab-results__list::-webkit-scrollbar-track {
-  background: #e3e6ec;
+  background: transparent;
   border-radius: 999px;
 }
 
@@ -258,7 +258,6 @@
   .lab-results {
     border-radius: 16px;
     padding: 18px 16px 16px;
-    height: clamp(280px, 32vh, 330px);
   }
 
   .lab-results__title {
@@ -295,5 +294,12 @@
   .profile-card__info-value,
   .lab-results__item-name {
     word-break: break-word;
+  }
+}
+
+@media (max-width: 1180px) {
+  .lab-results {
+    height: 350px;
+    flex: none;
   }
 }

@@ -9,12 +9,7 @@
   padding: 16px;
   gap: 16px;
   overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.layout::-webkit-scrollbar {
-  display: none;
+  overflow-x: hidden;
 }
 
 .layout__header,
@@ -32,7 +27,9 @@
   display: grid;
   grid-template-columns: minmax(260px, 300px) minmax(0, 1fr) minmax(250px, 280px);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
+  height: max(calc(100vh - 110px), 1000px);
+  min-height: 0;
 }
 
 .layout__sidebar,
@@ -42,18 +39,8 @@
   flex-direction: column;
   gap: 24px;
   min-width: 0;
-}
-
-.layout__sidebar {
-  position: sticky;
-  top: 16px;
-  height: calc(100vh - 106px);
-}
-
-.layout__right {
-  position: sticky;
-  top: 16px;
-  height: calc(100vh - 106px);
+  height: 100%;
+  min-height: 0;
 }
 
 @media (max-width: 1600px) {
@@ -87,16 +74,25 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1180px) {
+  .layout {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
   .layout__body {
     grid-template-columns: 250px minmax(0, 1fr);
     grid-template-areas:
       "sidebar center"
       "sidebar right";
     gap: 20px;
+    height: auto;
   }
 
   .layout__sidebar {
     grid-area: sidebar;
+    position: sticky;
+    top: 16px;
+    height: calc(100vh - 80px);
   }
 
   .layout__center {
@@ -105,9 +101,6 @@
 
   .layout__right {
     grid-area: right;
-    position: static;
-    top: auto;
-    height: auto;
   }
 }
 
@@ -115,6 +108,9 @@
   .layout {
     padding: 16px;
     gap: 16px;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
   }
 
   .layout__body {
@@ -123,10 +119,12 @@
       "sidebar center"
       "sidebar right";
     gap: 16px;
+    height: auto;
   }
 
   .layout__sidebar {
     grid-area: sidebar;
+    position: sticky;
     top: 16px;
     height: calc(100vh - 104px);
   }
@@ -137,9 +135,6 @@
 
   .layout__right {
     grid-area: right;
-    position: static;
-    top: auto;
-    height: auto;
   }
 }
 
@@ -147,6 +142,9 @@
   .layout {
     padding: 12px;
     gap: 12px;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
   }
 
   .layout__body {
@@ -155,6 +153,7 @@
       "center"
       "right";
     gap: 12px;
+    height: auto;
   }
 
   .layout__sidebar {

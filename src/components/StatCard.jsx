@@ -104,10 +104,7 @@ const StatCard = ({ type, label, value, unit, status, trend, id }) => {
 
       {/* Value */}
       <p className="stat-card__value">
-        {value}
-        <span style={{ fontSize: "var(--fs-18)", fontWeight: "var(--fw-bold)" }}>
-          {" "}{unit}
-        </span>
+        {value} {unit}
       </p>
 
       {/* Status */}

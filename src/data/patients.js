@@ -1,4 +1,4 @@
-﻿// ============================================================
+// ============================================================
 // PATIENTS DATA - Structured for real API integration
 // Replace fetch() calls with actual API endpoints when ready
 // ============================================================
@@ -179,6 +179,66 @@ export const jessicaTaylorData = {
       description: "Seasonal allergies causing nasal inflammation",
       status: "Under Observation",
     },
+    {
+      id: 6,
+      problem: "Hyperlipidemia",
+      description: "Excessive lipids in the blood, increasing cardiovascular risk",
+      status: "Under Observation",
+    },
+    {
+      id: 7,
+      problem: "Gastroesophageal Reflux",
+      description: "Stomach acid frequently flows back into the tube connecting mouth and stomach",
+      status: "Cured",
+    },
+    {
+      id: 8,
+      problem: "Migraine",
+      description: "A headache of varying intensity, often accompanied by nausea and sensitivity to light",
+      status: "Inactive",
+    },
+    {
+      id: 9,
+      problem: "Hypothyroidism",
+      description: "Thyroid gland doesn't produce enough thyroid hormone",
+      status: "Under Observation",
+    },
+    {
+      id: 10,
+      problem: "Anxiety Disorder",
+      description: "Feelings of worry, anxiety, or fear that are strong enough to interfere with daily activities",
+      status: "Cured",
+    },
+    {
+      id: 11,
+      problem: "Sleep Apnea",
+      description: "Sleep disorder in which breathing repeatedly stops and starts",
+      status: "Under Observation",
+    },
+    {
+      id: 12,
+      problem: "Vitamin D Deficiency",
+      description: "Inadequate level of vitamin D in the blood",
+      status: "Cured",
+    },
+    {
+      id: 13,
+      problem: "Iron Deficiency Anemia",
+      description: "A condition in which blood lacks adequate healthy red blood cells",
+      status: "Inactive",
+    },
+    {
+      id: 14,
+      problem: "Chronic Kidney Disease",
+      description: "Long standing disease of the kidneys leading to renal failure",
+      status: "Under Observation",
+    },
+    {
+      id: 15,
+      problem: "Depression",
+      description: "A mental health disorder characterized by persistently depressed mood",
+      status: "Inactive",
+    }
   ],
 
   // Lab Results
@@ -188,6 +248,16 @@ export const jessicaTaylorData = {
     { id: 3, name: "Radiology Reports" },
     { id: 4, name: "X-Rays" },
     { id: 5, name: "Urine Test" },
+    { id: 6, name: "Lipid Panel" },
+    { id: 7, name: "Comprehensive Metabolic Panel" },
+    { id: 8, name: "Complete Blood Count" },
+    { id: 9, name: "Hemoglobin A1C" },
+    { id: 10, name: "Thyroid Stimulating Hormone" },
+    { id: 11, name: "EKG Report" },
+    { id: 12, name: "Echocardiogram" },
+    { id: 13, name: "Liver Function Test" },
+    { id: 14, name: "Pulmonary Function Test" },
+    { id: 15, name: "Vitamin B12 Level" }
   ],
 };
 

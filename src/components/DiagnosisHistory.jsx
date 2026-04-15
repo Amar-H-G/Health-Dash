@@ -247,29 +247,13 @@ const DiagnosticTable = () => {
       <div className="diagnostic-table-wrapper">
         <table className="diagnostic-table diagnostic-table--body" aria-label="Diagnostic List">
           <tbody>
-            {diagnosticList.map((item) => {
-              const colors = statusColors[item.status] || {
-                bg: "#f0f0f0",
-                color: "#333",
-              };
-              return (
+            {diagnosticList.map((item) => (
                 <tr key={item.id}>
                   <td>{item.problem}</td>
                   <td>{item.description}</td>
-                  <td>
-                    <span
-                      className="status-badge"
-                      style={{
-                        backgroundColor: colors.bg,
-                        color: colors.color,
-                      }}
-                    >
-                      {item.status}
-                    </span>
-                  </td>
+                  <td>{item.status}</td>
                 </tr>
-              );
-            })}
+              ))}
           </tbody>
         </table>
       </div>
