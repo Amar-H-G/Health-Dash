@@ -26,8 +26,7 @@
   display: grid;
   grid-template-columns: 260px 1fr 280px;
   gap: var(--space-md);
-  flex: 1;
-  min-height: 0;           /* Allow children to shrink/scroll */
+  align-items: start;      /* Allow columns to have independent heights for sticky */
 }
 
 .layout__sidebar,
@@ -36,13 +35,28 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-md);
-  min-height: 0;           /* CRITICAL for nested scrolling */
-  overflow: hidden;        /* No scrollbars on the columns themselves */
 }
 
 /* Specific behaviors */
 .layout__sidebar {
-  height: 100%;
+  position: sticky;
+  top: var(--space-md);
+  height: calc(100vh - 40px); /* Fill viewport height */
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__center {
+  min-width: 0;
+  /* Center panel grows naturally and scrolls with the page */
+}
+
+.layout__right {
+  position: sticky;
+  top: var(--space-md);
+  height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
 }
 
 
