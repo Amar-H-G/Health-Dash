@@ -1,4 +1,4 @@
-// ============================================================
+﻿// ============================================================
 // PATIENTS DATA - Structured for real API integration
 // Replace fetch() calls with actual API endpoints when ready
 // ============================================================
@@ -206,3 +206,5 @@ export const statusColors = {
     color: "#991B1B",
   },
 };
+
+

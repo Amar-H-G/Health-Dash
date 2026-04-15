@@ -3,7 +3,6 @@ import "../styles/Header.css";
 import doctorAvatar from "../assets/senior-woman-doctor-and-portrait-smile-for-health-2023-11-27-05-18-16-utc.png";
 import testLogo from "../assets/TestLogo.svg";
 
-// Navigation items matching the design
 const NAV_ITEMS = [
   {
     id: "overview",
@@ -65,23 +64,32 @@ const NAV_ITEMS = [
   },
 ];
 
-/**
- * Header / Navbar Component
- * Displays the logo, navigation links, and doctor profile info.
- */
-const Header = () => {
+const Header = ({ onMenuToggle }) => {
   return (
     <header className="header" role="banner">
-      {/* Logo */}
-      <div className="header__logo" aria-label="Tech.Care home">
-        <img
-          src={testLogo}
-          alt="Tech.Care logo"
-          className="header__logo-img"
-        />
+      <div className="header__left">
+        <button
+          type="button"
+          className="header__menu-btn"
+          aria-label="Open patient sidebar"
+          onClick={onMenuToggle}
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <line x1="4" y1="7" x2="20" y2="7" strokeLinecap="round" />
+            <line x1="4" y1="12" x2="20" y2="12" strokeLinecap="round" />
+            <line x1="4" y1="17" x2="20" y2="17" strokeLinecap="round" />
+          </svg>
+        </button>
+
+        <div className="header__logo" aria-label="Tech.Care home">
+          <img
+            src={testLogo}
+            alt="Tech.Care logo"
+            className="header__logo-img"
+          />
+        </div>
       </div>
 
-      {/* Navigation */}
       <nav className="header__nav" aria-label="Main navigation">
         {NAV_ITEMS.map((item) => (
           <button
@@ -89,6 +97,7 @@ const Header = () => {
             id={`nav-${item.id}`}
             className={`header__nav-item ${item.active ? "header__nav-item--active" : ""}`}
             aria-current={item.active ? "page" : undefined}
+            type="button"
           >
             <span className="header__nav-icon">{item.icon}</span>
             {item.label}
@@ -96,9 +105,7 @@ const Header = () => {
         ))}
       </nav>
 
-      {/* Right Side: Doctor Profile + Actions */}
       <div className="header__right">
-        {/* Doctor info */}
         <div className="header__user" aria-label="Logged in as Dr. Jose Simmons">
           <img
             src={doctorAvatar}
@@ -113,9 +120,8 @@ const Header = () => {
 
         <div className="header__divider" aria-hidden="true" />
 
-        {/* Settings & More */}
         <div className="header__actions">
-          <button className="header__icon-btn" id="settings-btn" aria-label="Settings">
+          <button className="header__icon-btn" id="settings-btn" aria-label="Settings" type="button">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
               <circle cx="12" cy="12" r="3" strokeLinecap="round" strokeLinejoin="round" />
               <path
@@ -125,7 +131,7 @@ const Header = () => {
               />
             </svg>
           </button>
-          <button className="header__icon-btn" id="more-btn" aria-label="More options">
+          <button className="header__icon-btn" id="more-btn" aria-label="More options" type="button">
             <svg viewBox="0 0 24 24" fill="currentColor">
               <circle cx="5" cy="12" r="2" />
               <circle cx="12" cy="12" r="2" />

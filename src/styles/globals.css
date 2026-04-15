@@ -1,10 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
 
-/* ===========================
-   CSS DESIGN TOKENS
-   =========================== */
 :root {
-  /* Colors */
   --color-primary: #01F0D0;
   --color-primary-dark: #00C4AB;
   --color-bg: #F6F7FB;
@@ -15,73 +11,45 @@
   --color-border: #E8E8E8;
   --color-sidebar-active: #D8FCF7;
   --color-sidebar-active-border: #01F0D0;
-
-  /* Vitals card colors */
   --color-respiratory-bg: #E8F5FA;
   --color-temperature-bg: #FFE8E8;
   --color-heartrate-bg: #FFE8F0;
-
-  /* Systolic color */
   --color-systolic: #E66FD2;
   --color-diastolic: #8C6FE6;
-
-  /* Status colors */
-  --color-status-observation: #FFB347;
-  --color-status-cured: #4CAF50;
-  --color-status-inactive: #FF6B6B;
-
-  /* Typography */
   --font-family: 'Manrope', sans-serif;
-
-  /* Font sizes */
   --fs-12: 12px;
   --fs-14: 14px;
   --fs-16: 16px;
   --fs-18: 18px;
   --fs-24: 24px;
   --fs-30: 30px;
-
-  /* Font weights */
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
   --fw-bold: 700;
   --fw-extrabold: 800;
-
-  /* Line heights */
   --lh-12: 17px;
   --lh-14: 19px;
   --lh-16: 22px;
   --lh-18: 24px;
   --lh-24: 33px;
   --lh-30: 41px;
-
-  /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 32px;
-
-  /* Border radius */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-full: 9999px;
-
-  /* Shadows */
   --shadow-sm: 0px 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-md: 0px 4px 16px rgba(0, 0, 0, 0.08);
   --shadow-card: 0px 1px 4px rgba(0, 0, 0, 0.06);
-
-  /* Transitions */
   --transition-fast: 0.15s ease;
   --transition-base: 0.25s ease;
 }
 
-/* ===========================
-   RESET & BASE
-   =========================== */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -126,43 +94,27 @@ a {
   color: inherit;
 }
 
-/* ===========================
-   UTILITY CLASSES
-   =========================== */
-.text-dark { color: var(--color-text-dark); }
-.text-medium { color: var(--color-text-medium); }
-.text-light { color: var(--color-text-light); }
-.text-primary { color: var(--color-primary); }
+#root,
+#app-root {
+  min-height: 100vh;
+}
 
-.fw-regular { font-weight: var(--fw-regular); }
-.fw-medium { font-weight: var(--fw-medium); }
-.fw-bold { font-weight: var(--fw-bold); }
-.fw-extrabold { font-weight: var(--fw-extrabold); }
-
-.fs-12 { font-size: var(--fs-12); line-height: var(--lh-12); }
-.fs-14 { font-size: var(--fs-14); line-height: var(--lh-14); }
-.fs-16 { font-size: var(--fs-16); line-height: var(--lh-16); }
-.fs-18 { font-size: var(--fs-18); line-height: var(--lh-18); }
-.fs-24 { font-size: var(--fs-24); line-height: var(--lh-24); }
-.fs-30 { font-size: var(--fs-30); line-height: var(--lh-30); }
-
-/* ===========================
-   SCROLLBAR STYLING
-   =========================== */
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #E3E6EC;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: var(--radius-full);
+  background: #072635;
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #aaa;
+  background: #041b27;
 }
+

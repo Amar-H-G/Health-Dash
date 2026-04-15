@@ -11,9 +11,37 @@
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   flex-shrink: 0;
+  gap: var(--space-lg);
 }
 
-/* Logo */
+.header__left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.header__menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--color-text-dark);
+  transition: background var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.header__menu-btn:hover {
+  background: var(--color-bg);
+}
+
+.header__menu-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
 .header__logo {
   display: flex;
   align-items: center;
@@ -26,18 +54,11 @@
   height: auto;
 }
 
-.header__logo-text {
-  font-size: var(--fs-18);
-  font-weight: var(--fw-extrabold);
-  color: var(--color-text-dark);
-  letter-spacing: -0.5px;
-}
-
-/* Navigation */
 .header__nav {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  min-width: 0;
 }
 
 .header__nav-item {
@@ -73,11 +94,11 @@
   opacity: 0.8;
 }
 
-/* Right side user area */
 .header__right {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  min-width: 0;
 }
 
 .header__user {
@@ -85,6 +106,7 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  min-width: 0;
 }
 
 .header__user-avatar {
@@ -98,6 +120,7 @@
 .header__user-info {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .header__user-name {
@@ -144,4 +167,71 @@
 .header__icon-btn svg {
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .header__nav-item {
+    padding: 10px 12px;
+  }
+
+  .header__user-info {
+    max-width: 140px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header__nav {
+    gap: 2px;
+  }
+
+  .header__nav-item {
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .header__user-name,
+  .header__user-role {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 0 var(--space-sm);
+    height: 64px;
+    gap: var(--space-sm);
+  }
+
+  .header__menu-btn {
+    display: inline-flex;
+  }
+
+  .header__nav {
+    display: none;
+  }
+
+  .header__right {
+    gap: var(--space-sm);
+  }
+
+  .header__user-info,
+  .header__divider {
+    display: none;
+  }
+
+  .header__actions {
+    gap: 6px;
+  }
+
+  .header__icon-btn {
+    width: 34px;
+    height: 34px;
+  }
 }

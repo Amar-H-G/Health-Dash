@@ -1,21 +1,27 @@
 /* ===========================
-   LAYOUT — Production Standard Dashboard (Fixed Viewport)
+   LAYOUT
    =========================== */
 .layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background: var(--color-bg);
-  padding: var(--space-md);
-  gap: var(--space-md);
-  overflow-y: auto;        /* Enable global scrolling */
-  scrollbar-width: none;   /* Hide scrollbar for Firefox */
-  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  padding: 18px 18px 16px;
+  gap: 18px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .layout::-webkit-scrollbar {
   display: none;
+}
+
+.layout__header,
+.layout__body {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .layout__header {
@@ -24,9 +30,9 @@
 
 .layout__body {
   display: grid;
-  grid-template-columns: 260px 1fr 280px;
-  gap: var(--space-md);
-  align-items: start;      /* Allow columns to have independent heights for sticky */
+  grid-template-columns: 320px minmax(0, 1fr) 320px;
+  gap: 24px;
+  align-items: start;
 }
 
 .layout__sidebar,
@@ -34,98 +40,92 @@
 .layout__right {
   display: flex;
   flex-direction: column;
-  gap: var(--space-md);
+  gap: 24px;
+  min-width: 0;
 }
 
-/* Specific behaviors */
 .layout__sidebar {
   position: sticky;
-  top: var(--space-md);
-  height: calc(100vh - 40px); /* Fill viewport height */
-  display: flex;
-  flex-direction: column;
-}
-
-.layout__center {
-  min-width: 0;
-  /* Center panel grows naturally and scrolls with the page */
+  top: 18px;
+  height: calc(100vh - 110px);
 }
 
 .layout__right {
   position: sticky;
-  top: var(--space-md);
-  height: calc(100vh - 40px);
-  display: flex;
-  flex-direction: column;
+  top: 18px;
+  height: calc(100vh - 110px);
 }
 
-
-/* Responsive (Smaller Laptops & Tablets - DO NOT WRAP, JUST SHRINK) */
-@media (max-width: 1200px) {
+@media (max-width: 1400px) {
   .layout__body {
-    grid-template-columns: 230px 1fr 240px;
+    grid-template-columns: 300px minmax(0, 1fr) 300px;
+    gap: 20px;
   }
 }
 
-@media (max-width: 1024px) {
-  .layout__body {
-    grid-template-columns: 200px 1fr 210px;
-  }
-  
-  /* Make sure internal content scales nicely if squished */
-  .vitals-row {
-    grid-template-columns: repeat(3, 1fr); /* Stay in row but squish */
-  }
-  
-  .stat-card {
-    padding: var(--space-md);
-  }
-  
-  .stat-card__icon {
-    width: 60px;
-    height: 60px;
-  }
-  
-  .stat-card__value {
-    font-size: var(--fs-24);
-  }
-}
-
-/* Responsive (Mobile - NOW THEY WRAP/STACK) */
-@media (max-width: 800px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .layout {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .layout__body {
+    grid-template-columns: 260px minmax(0, 1fr);
+    grid-template-areas:
+      "sidebar center"
+      "sidebar right";
+    gap: 16px;
+  }
+
+  .layout__sidebar {
+    grid-area: sidebar;
+    top: 16px;
+    height: calc(100vh - 104px);
+  }
+
+  .layout__center {
+    grid-area: center;
+  }
+
+  .layout__right {
+    grid-area: right;
+    position: static;
+    top: auto;
     height: auto;
-    overflow-y: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .layout {
+    padding: 12px;
+    gap: 12px;
   }
 
   .layout__body {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "center"
+      "right";
+    gap: 12px;
   }
 
-  /* Unstick the sidebars since they are now stacked normally */
-  .layout__sidebar,
+  .layout__sidebar {
+    position: static;
+    top: auto;
+    height: 0;
+    overflow: visible;
+    z-index: 40;
+  }
+
+  .layout__sidebar:not(.layout__sidebar--open) {
+    pointer-events: none;
+  }
+
+  .layout__center,
   .layout__right {
     position: static;
+    top: auto;
     height: auto;
-  }
-
-  .vitals-row {
-    grid-template-columns: 1fr;
-  }
-
-  .bp-chart-card__body {
-    flex-direction: column;
-  }
-
-  .bp-chart-card__legend {
-    flex-direction: row;
-    justify-content: space-around;
-  }
-}
-
-/* Mobile Header adjustments */
-@media (max-width: 768px) {
-  .header__nav {
-    display: none;
+    gap: 12px;
   }
 }
