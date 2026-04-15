@@ -228,6 +228,27 @@
   line-height: var(--lh-24);
 }
 
+.diagnostic-table-wrapper {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: var(--space-md);
+  padding-right: 8px;
+}
+
+/* Custom scrollbar matching design */
+.diagnostic-table-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.diagnostic-table-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.diagnostic-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-text-dark);
+  border-radius: var(--radius-full);
+}
+
 .diagnostic-table {
   width: 100%;
   border-collapse: collapse;

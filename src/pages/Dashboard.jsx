@@ -19,15 +19,17 @@ const Dashboard = () => {
 
       {/* Main 3-Column Body */}
       <main className="layout__body" role="main">
-        {/* Left: Sidebar / Patient List */}
-        <Sidebar />
+        {/* Left: Sidebar — inner patient list scrolls independently */}
+        <div className="layout__sidebar">
+          <Sidebar />
+        </div>
 
-        {/* Center: Diagnosis History + Diagnostic Table */}
+        {/* Center: Diagnosis History + Chart + Table — column scrolls */}
         <div className="layout__center">
           <DiagnosisHistory />
         </div>
 
-        {/* Right: Patient Profile + Lab Results */}
+        {/* Right: Patient Profile + Lab Results — column scrolls */}
         <div className="layout__right">
           <PatientProfileCard />
         </div>

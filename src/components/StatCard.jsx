@@ -4,7 +4,7 @@ import "../styles/DiagnosisHistory.css";
 // ── Inline SVG Icons for stat cards ─────────────────────────
 
 const LungsIcon = () => (
-  <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="45" cy="45" r="45" fill="#E8F5FA" />
     <g transform="translate(18, 18)">
       {/* Lungs illustration */}
@@ -38,7 +38,7 @@ const LungsIcon = () => (
 );
 
 const ThermometerIcon = () => (
-  <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="45" cy="45" r="45" fill="#FFE8E8" />
     <g transform="translate(27, 15)">
       {/* Thermometer body */}
@@ -58,7 +58,7 @@ const ThermometerIcon = () => (
 );
 
 const HeartRateIcon = () => (
-  <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="45" cy="45" r="45" fill="#FFE8F0" />
     <g transform="translate(15, 18)">
       {/* Heart */}

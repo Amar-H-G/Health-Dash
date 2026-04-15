@@ -7,10 +7,7 @@
   background: var(--color-white);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-  width: 260px;
-  min-width: 260px;
   height: 100%;
-  overflow: hidden;
 }
 
 .sidebar__header {
@@ -51,6 +48,20 @@
   flex: 1;
   overflow-y: auto;
   padding: var(--space-xs) 0;
+  padding-right: 4px;
+}
+
+.sidebar__list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar__list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar__list::-webkit-scrollbar-thumb {
+  background: var(--color-text-dark);
+  border-radius: var(--radius-full);
 }
 
 .sidebar__list-item {
