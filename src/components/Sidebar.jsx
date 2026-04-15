@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Sidebar.css";
-import { patients } from "../data/patients";
 import searchIcon from "../assets/search_FILL0_wght300_GRAD0_opsz24.svg";
-import jessicaAvatar from "../assets/Layer 8.png";
 
-const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
+const Sidebar = ({ patients = [], activePatientName = "Jessica Taylor", isOpen = false, onClose = () => {} }) => {
   const listRef = useRef(null);
   const [scrollState, setScrollState] = useState({
     visible: false,
@@ -56,11 +54,7 @@ const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
   }, []);
 
   const getAvatarSrc = (patient) => {
-    if (patient.name === "Jessica Taylor") {
-      return jessicaAvatar;
-    }
-
-    return patient.avatar;
+    return patient.profile_picture;
   };
 
   return (
@@ -106,13 +100,13 @@ const Sidebar = ({ isOpen = false, onClose = () => {} }) => {
             role="list"
             aria-label="Patients"
           >
-            {patients.map((patient) => {
-              const isActive = patient.name === "Jessica Taylor";
+            {patients.map((patient, i) => {
+              const isActive = patient.name === activePatientName;
               const avatarSrc = getAvatarSrc(patient);
 
               return (
                 <li
-                  key={patient.id}
+                  key={patient.name + i}
                   className={`sidebar__list-item ${isActive ? "sidebar__list-item--active" : ""}`}
                   role="listitem"
                   aria-selected={isActive}

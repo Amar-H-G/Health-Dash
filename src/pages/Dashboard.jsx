@@ -4,9 +4,11 @@ import Header from "../components/Header";
 import Sidebar from "../components/Sidebar";
 import DiagnosisHistory from "../components/DiagnosisHistory";
 import PatientProfileCard from "../components/PatientProfileCard";
+import { usePatientData } from "../hooks/usePatientData";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const { patients, activePatient, loading, error } = usePatientData();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -42,6 +44,14 @@ const Dashboard = () => {
     };
   }, [isSidebarOpen]);
 
+  if (loading) {
+    return <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-family)" }}>Loading Patient Data...</div>;
+  }
+
+  if (error || !activePatient) {
+    return <div style={{ display: "flex", height: "100vh", alignItems: "center", justifyContent: "center", color: "red", fontFamily: "var(--font-family)" }}>Error loading data: {error}</div>;
+  }
+
   return (
     <div className="layout">
       <div className="layout__header">
@@ -51,17 +61,19 @@ const Dashboard = () => {
       <main className="layout__body" role="main">
         <div className={`layout__sidebar ${isSidebarOpen ? "layout__sidebar--open" : ""}`}>
           <Sidebar
+            patients={patients}
+            activePatientName={activePatient.name}
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
           />
         </div>
 
         <div className="layout__center">
-          <DiagnosisHistory />
+          <DiagnosisHistory patient={activePatient} />
         </div>
 
         <div className="layout__right">
-          <PatientProfileCard />
+          <PatientProfileCard patient={activePatient} />
         </div>
       </main>
     </div>

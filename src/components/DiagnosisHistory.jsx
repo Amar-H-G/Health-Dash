@@ -11,7 +11,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import "../styles/DiagnosisHistory.css";
-import { jessicaTaylorData, statusColors } from "../data/patients";
 import StatCard from "./StatCard";
 
 // Register Chart.js modules
@@ -77,12 +76,16 @@ const ChevronDownIcon = () => (
 
 // ── Blood Pressure Chart ─────────────────────────────────────
 
-const BloodPressureChart = () => {
-  const { bloodPressureHistory, latestBloodPressure } = jessicaTaylorData;
+const BloodPressureChart = ({ patient }) => {
+  const history = patient.diagnosis_history || [];
+  
+  // Get last 6 months, then reverse so oldest is left, newest is right
+  const chartDataReversed = [...history].slice(0, 6).reverse();
+  const latestRecord = history[0] || { blood_pressure: { systolic: {}, diastolic: {} } };
 
-  const labels = bloodPressureHistory.map((d) => d.month);
-  const systolicData = bloodPressureHistory.map((d) => d.systolic);
-  const diastolicData = bloodPressureHistory.map((d) => d.diastolic);
+  const labels = chartDataReversed.map((d) => `${d.month.substring(0, 3)}, ${d.year}`);
+  const systolicData = chartDataReversed.map((d) => d.blood_pressure.systolic.value);
+  const diastolicData = chartDataReversed.map((d) => d.blood_pressure.diastolic.value);
 
   const chartData = {
     labels,
@@ -195,11 +198,11 @@ const BloodPressureChart = () => {
               <span className="bp-legend-item__label">Systolic</span>
             </div>
             <div className="bp-legend-item__value">
-              {latestBloodPressure.systolic}
+              {latestRecord.blood_pressure.systolic.value}
             </div>
             <div className="bp-legend-item__status">
               <ArrowUpIcon />
-              {latestBloodPressure.systolicStatus}
+              {latestRecord.blood_pressure.systolic.levels}
             </div>
           </div>
 
@@ -212,11 +215,11 @@ const BloodPressureChart = () => {
               <span className="bp-legend-item__label">Diastolic</span>
             </div>
             <div className="bp-legend-item__value">
-              {latestBloodPressure.diastolic}
+              {latestRecord.blood_pressure.diastolic.value}
             </div>
             <div className="bp-legend-item__status">
               <ArrowDownIcon />
-              {latestBloodPressure.diastolicStatus}
+              {latestRecord.blood_pressure.diastolic.levels}
             </div>
           </div>
         </div>
@@ -227,8 +230,8 @@ const BloodPressureChart = () => {
 
 // ── Diagnostic Table ─────────────────────────────────────────
 
-const DiagnosticTable = () => {
-  const { diagnosticList } = jessicaTaylorData;
+const DiagnosticTable = ({ patient }) => {
+  const diagnosticList = patient.diagnostic_list || [];
 
   return (
     <div className="diagnostic-list">
@@ -247,9 +250,9 @@ const DiagnosticTable = () => {
       <div className="diagnostic-table-wrapper">
         <table className="diagnostic-table diagnostic-table--body" aria-label="Diagnostic List">
           <tbody>
-            {diagnosticList.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.problem}</td>
+            {diagnosticList.map((item, index) => (
+                <tr key={index}>
+                  <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{item.status}</td>
                 </tr>
@@ -267,8 +270,15 @@ const DiagnosticTable = () => {
  * DiagnosisHistory Component
  * Contains: Blood pressure chart, vitals stat cards, and diagnostic table.
  */
-const DiagnosisHistory = () => {
-  const { vitals } = jessicaTaylorData;
+const DiagnosisHistory = ({ patient }) => {
+  const latestVitals = patient.diagnosis_history?.[0] || {};
+  
+  const getTrend = (levels) => {
+    if (!levels) return null;
+    if (levels.includes("Higher")) return "up";
+    if (levels.includes("Lower")) return "down";
+    return null;
+  };
 
   return (
     <>
@@ -276,42 +286,42 @@ const DiagnosisHistory = () => {
         <h1 className="diagnosis-history__title">Diagnosis History</h1>
 
         {/* Blood Pressure Chart Card */}
-        <BloodPressureChart />
+        <BloodPressureChart patient={patient} />
 
         {/* Vitals Row - 3 stat cards */}
         <div className="vitals-row" role="region" aria-label="Vital signs">
           <StatCard
             type="respiratory"
             label="Respiratory Rate"
-            value={vitals.respiratoryRate.value}
-            unit={vitals.respiratoryRate.unit}
-            status={vitals.respiratoryRate.status}
-            trend={vitals.respiratoryRate.trend}
+            value={latestVitals.respiratory_rate?.value}
+            unit="bpm"
+            status={latestVitals.respiratory_rate?.levels}
+            trend={getTrend(latestVitals.respiratory_rate?.levels)}
             id="stat-respiratory"
           />
           <StatCard
             type="temperature"
             label="Temperature"
-            value={vitals.temperature.value}
-            unit={vitals.temperature.unit}
-            status={vitals.temperature.status}
-            trend={vitals.temperature.trend}
+            value={latestVitals.temperature?.value}
+            unit="°F"
+            status={latestVitals.temperature?.levels}
+            trend={getTrend(latestVitals.temperature?.levels)}
             id="stat-temperature"
           />
           <StatCard
             type="heartrate"
             label="Heart Rate"
-            value={vitals.heartRate.value}
-            unit={vitals.heartRate.unit}
-            status={vitals.heartRate.status}
-            trend={vitals.heartRate.trend}
+            value={latestVitals.heart_rate?.value}
+            unit="bpm"
+            status={latestVitals.heart_rate?.levels}
+            trend={getTrend(latestVitals.heart_rate?.levels)}
             id="stat-heartrate"
           />
         </div>
 
       </section>
       <section className="diagnostic-panel" aria-label="Diagnostic List">
-        <DiagnosticTable />
+        <DiagnosticTable patient={patient} />
       </section>
     </>
   );

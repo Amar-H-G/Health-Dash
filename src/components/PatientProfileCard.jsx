@@ -1,7 +1,6 @@
 import React from "react";
 import "../styles/PatientProfile.css";
-import { jessicaTaylorData } from "../data/patients";
-import jessicaPhoto from "../assets/Layer 8@2x.png";
+import "../styles/PatientProfile.css";
 import phoneIcon from "../assets/PhoneIcon.svg";
 import insuranceIcon from "../assets/InsuranceIcon.svg";
 
@@ -19,53 +18,57 @@ const DownloadIcon = () => (
   </svg>
 );
 
-// ── Profile Info Items ───────────────────────────────────────
-
-const PROFILE_INFO_ITEMS = [
-  {
-    id: "dob",
-    label: "Date Of Birth",
-    value: jessicaTaylorData.dateOfBirth,
-    icon: <img src={birthIcon} alt="" width="24" height="24" aria-hidden="true" />,
-  },
-  {
-    id: "gender",
-    label: "Gender",
-    value: jessicaTaylorData.gender,
-    icon: <img src={femaleIcon} alt="" width="24" height="24" aria-hidden="true" />,
-  },
-  {
-    id: "contact",
-    label: "Contact Info.",
-    value: jessicaTaylorData.contactInfo,
-    icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
-  },
-  {
-    id: "emergency",
-    label: "Emergency Contacts",
-    value: jessicaTaylorData.emergencyContacts,
-    icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
-  },
-  {
-    id: "insurance",
-    label: "Insurance Provider",
-    value: jessicaTaylorData.insuranceProvider,
-    icon: <img src={insuranceIcon} alt="" width="24" height="24" aria-hidden="true" />,
-  },
-];
-
 // ── Profile Card Component ───────────────────────────────────
 
-const ProfileCard = () => {
-  const { name } = jessicaTaylorData;
+const ProfileCard = ({ patient }) => {
+  const { name, profile_picture, date_of_birth, gender, phone_number, emergency_contact, insurance_type } = patient;
+
+  const formattedDob = new Date(date_of_birth).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  });
+
+  const PROFILE_INFO_ITEMS = [
+    {
+      id: "dob",
+      label: "Date Of Birth",
+      value: formattedDob,
+      icon: <img src={birthIcon} alt="" width="24" height="24" aria-hidden="true" />,
+    },
+    {
+      id: "gender",
+      label: "Gender",
+      value: gender,
+      icon: <img src={femaleIcon} alt="" width="24" height="24" aria-hidden="true" />,
+    },
+    {
+      id: "contact",
+      label: "Contact Info.",
+      value: phone_number,
+      icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
+    },
+    {
+      id: "emergency",
+      label: "Emergency Contacts",
+      value: emergency_contact,
+      icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
+    },
+    {
+      id: "insurance",
+      label: "Insurance Provider",
+      value: insurance_type,
+      icon: <img src={insuranceIcon} alt="" width="24" height="24" aria-hidden="true" />,
+    },
+  ];
 
   return (
     <div className="profile-card" role="region" aria-label="Patient profile">
       {/* Avatar */}
       <div className="profile-card__avatar-wrapper">
         <img
-          src={jessicaPhoto}
-          alt="Jessica Taylor"
+          src={profile_picture}
+          alt={name}
           className="profile-card__avatar"
         />
       </div>
@@ -90,7 +93,7 @@ const ProfileCard = () => {
       <button
         className="profile-card__btn"
         id="show-all-info-btn"
-        aria-label="Show all information for Jessica Taylor"
+        aria-label={`Show all information for ${name}`}
       >
         Show All Information
       </button>
@@ -100,23 +103,23 @@ const ProfileCard = () => {
 
 // ── Lab Results Component ────────────────────────────────────
 
-const LabResults = () => {
-  const { labResults } = jessicaTaylorData;
+const LabResults = ({ patient }) => {
+  const { lab_results } = patient;
 
   return (
     <div className="lab-results" role="region" aria-label="Lab results">
       <h3 className="lab-results__title">Lab Results</h3>
       <ul className="lab-results__list" aria-label="Available lab result documents">
-        {labResults.map((result, index) => (
+        {lab_results.map((result, index) => (
           <li
-            key={result.id}
+            key={index}
             className={`lab-results__item ${index === 1 ? "lab-results__item--active" : ""}`}
           >
-            <span className="lab-results__item-name">{result.name}</span>
+            <span className="lab-results__item-name">{result}</span>
             <button
               className="lab-results__download-btn"
-              id={`download-${result.name.toLowerCase().replace(/\s+/g, "-")}`}
-              aria-label={`Download ${result.name}`}
+              id={`download-${result.toLowerCase().replace(/\s+/g, "-")}`}
+              aria-label={`Download ${result}`}
             >
               <DownloadIcon />
             </button>
@@ -133,11 +136,11 @@ const LabResults = () => {
  * PatientProfileCard
  * Right panel containing profile information and lab results.
  */
-const PatientProfileCard = () => {
+const PatientProfileCard = ({ patient }) => {
   return (
     <div className="patient-profile">
-      <ProfileCard />
-      <LabResults />
+      <ProfileCard patient={patient} />
+      <LabResults patient={patient} />
     </div>
   );
 };
