@@ -8,7 +8,7 @@ import insuranceIcon from "../assets/InsuranceIcon.svg";
 // ── Info Icons (inline SVGs) ────────────────────────────────
 
 const CalendarIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
+  <svg style={{ transform: "scale(0.85)" }} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round" strokeLinejoin="round" />
