@@ -62,7 +62,7 @@
 .profile-card__info-icon {
   width: 44px;
   height: 44px;
-  background: #F6F7FB;
+  background: #f6f7fb;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -118,7 +118,9 @@
   border-radius: 18px;
   padding: 24px 20px 20px;
   box-shadow: var(--shadow-card);
-  min-height: 332px;
+  /* min-height: 332px;
+   */
+  height: 280px;
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -148,7 +150,7 @@
 }
 
 .lab-results__list::-webkit-scrollbar-track {
-  background: #E3E6EC;
+  background: #e3e6ec;
   border-radius: 999px;
 }
 
@@ -173,7 +175,7 @@
 }
 
 .lab-results__item--active {
-  background: #F6F7FB;
+  background: #f6f7fb;
 }
 
 .lab-results__item-name {
