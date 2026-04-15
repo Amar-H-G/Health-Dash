@@ -1,0 +1,128 @@
+/* ===========================
+   SIDEBAR
+   =========================== */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  width: 260px;
+  min-width: 260px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-lg) var(--space-md);
+  flex-shrink: 0;
+}
+
+.sidebar__title {
+  font-size: var(--fs-18);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-text-dark);
+}
+
+.sidebar__search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background var(--transition-fast);
+}
+
+.sidebar__search-btn:hover {
+  background: var(--color-bg);
+}
+
+.sidebar__search-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+/* Patients List */
+.sidebar__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-xs) 0;
+}
+
+.sidebar__list-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px var(--space-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  position: relative;
+  border-left: 3px solid transparent;
+}
+
+.sidebar__list-item:hover {
+  background: rgba(1, 240, 208, 0.05);
+}
+
+.sidebar__list-item--active {
+  background: var(--color-sidebar-active);
+  border-left-color: var(--color-sidebar-active-border);
+}
+
+.sidebar__avatar-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.sidebar__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sidebar__patient-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar__patient-name {
+  font-size: var(--fs-14);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: var(--lh-14);
+}
+
+.sidebar__patient-meta {
+  font-size: var(--fs-12);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-medium);
+  line-height: var(--lh-12);
+  margin-top: 2px;
+}
+
+.sidebar__more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: background var(--transition-fast);
+  color: var(--color-text-medium);
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: var(--fw-bold);
+}
+
+.sidebar__more-btn:hover {
+  background: var(--color-border);
+}
