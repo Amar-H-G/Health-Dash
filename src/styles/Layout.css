@@ -25,7 +25,7 @@
 
 .layout__body {
   display: grid;
-  grid-template-columns: minmax(260px, 300px) minmax(0, 1fr) minmax(250px, 280px);
+  grid-template-columns: minmax(300px, 360px) minmax(0, 1fr) minmax(300px, 360px);
   gap: 24px;
   align-items: stretch;
   height: max(calc(100vh - 110px), 1000px);
@@ -45,7 +45,7 @@
 
 @media (max-width: 1600px) {
   .layout__body {
-    grid-template-columns: minmax(250px, 280px) minmax(0, 1fr) minmax(240px, 264px);
+    grid-template-columns: minmax(280px, 330px) minmax(0, 1fr) minmax(280px, 340px);
     gap: 20px;
   }
 }
@@ -57,7 +57,7 @@
   }
 
   .layout__body {
-    grid-template-columns: 240px minmax(0, 1fr) 230px;
+    grid-template-columns: 280px minmax(0, 1fr) 280px;
     gap: 16px;
   }
 
