@@ -34,7 +34,7 @@
   grid-template-columns: minmax(300px, 360px) minmax(0, 1fr) minmax(300px, 360px);
   gap: 24px;
   align-items: stretch;
-  height: max(calc(100vh - 110px), 1000px);
+  height: max(calc(100vh - 110px), 960px);
   min-height: 0;
 }
 
@@ -73,10 +73,7 @@
     gap: 16px;
   }
 
-  .layout__sidebar,
-  .layout__right {
-    height: calc(100vh - 98px);
-  }
+
 }
 
 @media (max-width: 1180px) and (min-width: 1024px) {
