@@ -70,10 +70,15 @@
   flex-shrink: 0;
 }
 
-.profile-card__info-icon img,
+.profile-card__info-icon img {
+  width: 24px;
+  height: 24px;
+  transform: scale(1.35);
+}
+
 .profile-card__info-icon svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
 }
 
 .profile-card__info-content {

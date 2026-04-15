@@ -8,7 +8,7 @@ import insuranceIcon from "../assets/InsuranceIcon.svg";
 // ── Info Icons (inline SVGs) ────────────────────────────────
 
 const CalendarIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round" strokeLinejoin="round" />
@@ -17,7 +17,7 @@ const CalendarIcon = () => (
 );
 
 const GenderIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
     <circle cx="12" cy="12" r="4" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="12" y1="16" x2="12" y2="22" strokeLinecap="round" strokeLinejoin="round" />
     <line x1="9" y1="19" x2="15" y2="19" strokeLinecap="round" strokeLinejoin="round" />
@@ -54,19 +54,19 @@ const PROFILE_INFO_ITEMS = [
     id: "contact",
     label: "Contact Info.",
     value: jessicaTaylorData.contactInfo,
-    icon: <img src={phoneIcon} alt="" width="20" height="20" aria-hidden="true" />,
+    icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
   },
   {
     id: "emergency",
     label: "Emergency Contacts",
     value: jessicaTaylorData.emergencyContacts,
-    icon: <img src={phoneIcon} alt="" width="20" height="20" aria-hidden="true" />,
+    icon: <img src={phoneIcon} alt="" width="24" height="24" aria-hidden="true" />,
   },
   {
     id: "insurance",
     label: "Insurance Provider",
     value: jessicaTaylorData.insuranceProvider,
-    icon: <img src={insuranceIcon} alt="" width="20" height="20" aria-hidden="true" />,
+    icon: <img src={insuranceIcon} alt="" width="24" height="24" aria-hidden="true" />,
   },
 ];
 
