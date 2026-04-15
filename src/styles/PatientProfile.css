@@ -118,9 +118,7 @@
   border-radius: 18px;
   padding: 24px 20px 20px;
   box-shadow: var(--shadow-card);
-  /* min-height: 332px;
-   */
-  height: 280px;
+  height: clamp(300px, 34vh, 368px);
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -212,6 +210,60 @@
   .lab-results__title {
     font-size: 24px;
     line-height: 33px;
+  }
+}
+
+@media (max-width: 1365px) {
+  .patient-profile {
+    gap: 16px;
+  }
+
+  .profile-card {
+    padding: 24px 18px 20px;
+    border-radius: 16px;
+  }
+
+  .profile-card__avatar-wrapper {
+    width: 168px;
+    height: 168px;
+    margin-bottom: 18px;
+  }
+
+  .profile-card__name {
+    font-size: 26px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .profile-card__info-list {
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+
+  .profile-card__info-item {
+    gap: 10px;
+  }
+
+  .profile-card__info-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .profile-card__info-label,
+  .profile-card__info-value,
+  .lab-results__item-name {
+    font-size: 13px;
+  }
+
+  .lab-results {
+    border-radius: 16px;
+    padding: 18px 16px 16px;
+    height: clamp(280px, 32vh, 330px);
+  }
+
+  .lab-results__title {
+    font-size: 22px;
+    margin-bottom: 16px;
   }
 }
 

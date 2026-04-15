@@ -361,6 +361,61 @@
   }
 }
 
+@media (max-width: 1365px) {
+  .diagnosis-history,
+  .diagnostic-panel {
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .diagnosis-history__title {
+    font-size: 28px;
+  }
+
+  .bp-chart-card__body {
+    grid-template-columns: minmax(0, 1fr) 198px;
+    gap: 16px;
+  }
+
+  .bp-chart-card__chart {
+    height: 220px;
+  }
+
+  .vitals-row {
+    gap: 16px;
+  }
+
+  .stat-card {
+    min-height: 248px;
+    padding: 16px;
+  }
+
+  .stat-card__icon-wrapper,
+  .stat-card__icon-wrapper svg,
+  .stat-card__icon-wrapper img {
+    width: 96px;
+    height: 96px;
+  }
+
+  .stat-card__label {
+    font-size: 16px;
+  }
+
+  .stat-card__value {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .vitals-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .vitals-row .stat-card:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (max-width: 767px) {
   .diagnosis-history {
     gap: 14px;

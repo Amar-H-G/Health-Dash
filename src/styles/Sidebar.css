@@ -199,6 +199,34 @@
   }
 }
 
+@media (max-width: 1365px) {
+  .sidebar {
+    border-radius: 16px;
+  }
+
+  .sidebar__header {
+    padding: 16px 16px 10px;
+  }
+
+  .sidebar__title {
+    font-size: 28px;
+  }
+
+  .sidebar__list-item {
+    padding: 12px 14px;
+  }
+
+  .sidebar__avatar {
+    width: 42px;
+    height: 42px;
+  }
+
+  .sidebar__patient-name,
+  .sidebar__patient-meta {
+    font-size: 13px;
+  }
+}
+
 @media (max-width: 767px) {
   .sidebar__backdrop {
     display: block;
