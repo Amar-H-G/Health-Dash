@@ -246,9 +246,8 @@
 }
 
 .diagnostic-table-wrapper {
-  flex: 1;
   height: auto;
-  min-height: 0;
+  max-height: 162px;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-gutter: stable;

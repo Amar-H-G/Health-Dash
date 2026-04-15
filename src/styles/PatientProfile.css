@@ -21,11 +21,11 @@
 }
 
 .profile-card__avatar-wrapper {
-  width: 210px;
-  height: 210px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
   flex-shrink: 0;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .profile-card__name {
-  font-size: 32px;
+  font-size: 24px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   line-height: 44px;
 }
 
@@ -48,9 +48,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 18px;
   text-align: left;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .profile-card__info-item {
@@ -136,8 +136,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  flex: 1 1 auto;
-  min-height: 0;
+  max-height: 140px;
   overflow-y: auto;
   scrollbar-gutter: stable;
   padding-right: 6px;
