@@ -12,6 +12,14 @@
   box-shadow: var(--shadow-card);
 }
 
+.diagnostic-panel {
+  min-width: 0;
+  background: var(--color-white);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow-card);
+}
+
 .diagnosis-history__title {
   font-size: 32px;
   font-weight: var(--fw-extrabold);
@@ -212,7 +220,7 @@
 .diagnostic-list {
   background: var(--color-white);
   border-radius: 16px;
-  padding: 2px 0 0;
+  padding: 0;
   min-width: 0;
   box-shadow: none;
 }
@@ -221,16 +229,20 @@
   font-size: 24px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
   line-height: 1.2;
 }
 
+.diagnostic-table-header {
+  margin-bottom: 6px;
+}
+
 .diagnostic-table-wrapper {
-  max-height: 320px;
+  height: 214px;
   overflow-y: auto;
-  overflow-x: auto;
+  overflow-x: hidden;
   scrollbar-gutter: stable;
-  padding-right: 6px;
+  padding-right: 8px;
 }
 
 .diagnostic-table-wrapper::-webkit-scrollbar {
@@ -253,9 +265,10 @@
   min-width: 620px;
   border-collapse: separate;
   border-spacing: 0;
+  table-layout: fixed;
 }
 
-.diagnostic-table thead tr {
+.diagnostic-table--header thead tr {
   background: var(--color-bg);
 }
 
@@ -268,6 +281,21 @@
   white-space: nowrap;
 }
 
+.diagnostic-table th:nth-child(1),
+.diagnostic-table td:nth-child(1) {
+  width: 32%;
+}
+
+.diagnostic-table th:nth-child(2),
+.diagnostic-table td:nth-child(2) {
+  width: 53%;
+}
+
+.diagnostic-table th:nth-child(3),
+.diagnostic-table td:nth-child(3) {
+  width: 15%;
+}
+
 .diagnostic-table th:first-child {
   border-radius: 24px 0 0 24px;
 }
@@ -278,14 +306,15 @@
 
 .diagnostic-table tbody tr {
   border-bottom: 1px solid #F1F3F7;
+  height: 54px;
 }
 
 .diagnostic-table td {
   font-size: 14px;
   font-weight: var(--fw-regular);
   color: var(--color-text-medium);
-  padding: 18px;
-  vertical-align: top;
+  padding: 16px 18px;
+  vertical-align: middle;
   line-height: 19px;
 }
 
@@ -335,6 +364,10 @@
 @media (max-width: 767px) {
   .diagnosis-history {
     gap: 14px;
+    padding: 16px;
+  }
+
+  .diagnostic-panel {
     padding: 16px;
   }
 

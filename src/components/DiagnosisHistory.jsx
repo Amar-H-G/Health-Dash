@@ -233,8 +233,8 @@ const DiagnosticTable = () => {
   return (
     <div className="diagnostic-list">
       <h2 className="diagnostic-list__title">Diagnostic List</h2>
-      <div className="diagnostic-table-wrapper">
-        <table className="diagnostic-table" aria-label="Diagnostic List">
+      <div className="diagnostic-table-header" aria-hidden="true">
+        <table className="diagnostic-table diagnostic-table--header">
           <thead>
             <tr>
               <th scope="col">Problem/Diagnosis</th>
@@ -242,6 +242,10 @@ const DiagnosticTable = () => {
               <th scope="col">Status</th>
             </tr>
           </thead>
+        </table>
+      </div>
+      <div className="diagnostic-table-wrapper">
+        <table className="diagnostic-table diagnostic-table--body" aria-label="Diagnostic List">
           <tbody>
             {diagnosticList.map((item) => {
               const colors = statusColors[item.status] || {
@@ -283,46 +287,49 @@ const DiagnosisHistory = () => {
   const { vitals } = jessicaTaylorData;
 
   return (
-    <section className="diagnosis-history" aria-label="Diagnosis History">
-      <h1 className="diagnosis-history__title">Diagnosis History</h1>
+    <>
+      <section className="diagnosis-history" aria-label="Diagnosis History">
+        <h1 className="diagnosis-history__title">Diagnosis History</h1>
 
-      {/* Blood Pressure Chart Card */}
-      <BloodPressureChart />
+        {/* Blood Pressure Chart Card */}
+        <BloodPressureChart />
 
-      {/* Vitals Row - 3 stat cards */}
-      <div className="vitals-row" role="region" aria-label="Vital signs">
-        <StatCard
-          type="respiratory"
-          label="Respiratory Rate"
-          value={vitals.respiratoryRate.value}
-          unit={vitals.respiratoryRate.unit}
-          status={vitals.respiratoryRate.status}
-          trend={vitals.respiratoryRate.trend}
-          id="stat-respiratory"
-        />
-        <StatCard
-          type="temperature"
-          label="Temperature"
-          value={vitals.temperature.value}
-          unit={vitals.temperature.unit}
-          status={vitals.temperature.status}
-          trend={vitals.temperature.trend}
-          id="stat-temperature"
-        />
-        <StatCard
-          type="heartrate"
-          label="Heart Rate"
-          value={vitals.heartRate.value}
-          unit={vitals.heartRate.unit}
-          status={vitals.heartRate.status}
-          trend={vitals.heartRate.trend}
-          id="stat-heartrate"
-        />
-      </div>
+        {/* Vitals Row - 3 stat cards */}
+        <div className="vitals-row" role="region" aria-label="Vital signs">
+          <StatCard
+            type="respiratory"
+            label="Respiratory Rate"
+            value={vitals.respiratoryRate.value}
+            unit={vitals.respiratoryRate.unit}
+            status={vitals.respiratoryRate.status}
+            trend={vitals.respiratoryRate.trend}
+            id="stat-respiratory"
+          />
+          <StatCard
+            type="temperature"
+            label="Temperature"
+            value={vitals.temperature.value}
+            unit={vitals.temperature.unit}
+            status={vitals.temperature.status}
+            trend={vitals.temperature.trend}
+            id="stat-temperature"
+          />
+          <StatCard
+            type="heartrate"
+            label="Heart Rate"
+            value={vitals.heartRate.value}
+            unit={vitals.heartRate.unit}
+            status={vitals.heartRate.status}
+            trend={vitals.heartRate.trend}
+            id="stat-heartrate"
+          />
+        </div>
 
-      {/* Diagnostic List Table */}
-      <DiagnosticTable />
-    </section>
+      </section>
+      <section className="diagnostic-panel" aria-label="Diagnostic List">
+        <DiagnosticTable />
+      </section>
+    </>
   );
 };
 
