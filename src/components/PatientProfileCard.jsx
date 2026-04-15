@@ -5,26 +5,10 @@ import jessicaPhoto from "../assets/Layer 8@2x.png";
 import phoneIcon from "../assets/PhoneIcon.svg";
 import insuranceIcon from "../assets/InsuranceIcon.svg";
 
+import birthIcon from "../assets/BirthIcon.svg";
+import femaleIcon from "../assets/FemaleIcon.svg";
+
 // ── Info Icons (inline SVGs) ────────────────────────────────
-
-const CalendarIcon = () => (
-  <svg style={{ transform: "scale(0.85)" }} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
-    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="16" y1="2" x2="16" y2="6" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="8" y1="2" x2="8" y2="6" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="3" y1="10" x2="21" y2="10" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const GenderIcon = () => (
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#072635" strokeWidth="1.8" aria-hidden="true">
-    <circle cx="12" cy="12" r="4" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="12" y1="16" x2="12" y2="22" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="9" y1="19" x2="15" y2="19" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="12" y1="8" x2="12" y2="2" strokeLinecap="round" strokeLinejoin="round" />
-    <line x1="9" y1="2" x2="15" y2="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 // Download icon for lab results
 const DownloadIcon = () => (
@@ -42,13 +26,13 @@ const PROFILE_INFO_ITEMS = [
     id: "dob",
     label: "Date Of Birth",
     value: jessicaTaylorData.dateOfBirth,
-    icon: <CalendarIcon />,
+    icon: <img src={birthIcon} alt="" width="24" height="24" aria-hidden="true" />,
   },
   {
     id: "gender",
     label: "Gender",
     value: jessicaTaylorData.gender,
-    icon: <GenderIcon />,
+    icon: <img src={femaleIcon} alt="" width="24" height="24" aria-hidden="true" />,
   },
   {
     id: "contact",
