@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +13,6 @@ import { Line } from "react-chartjs-2";
 import "../styles/DiagnosisHistory.css";
 import { jessicaTaylorData, statusColors } from "../data/patients";
 import StatCard from "./StatCard";
-import respiratoryIcon from "../assets/HeartBPM.svg";
 
 // Register Chart.js modules
 ChartJS.register(
@@ -23,26 +22,56 @@ ChartJS.register(
   LineElement,
   Filler,
   Tooltip,
-  Legend
+  Legend,
 );
 
 // ── Icons ────────────────────────────────────────────────────
 
 const ArrowUpIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-    <polyline points="18 15 12 9 6 15" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    aria-hidden="true"
+  >
+    <polyline
+      points="18 15 12 9 6 15"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const ArrowDownIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-    <polyline points="6 9 12 15 18 9" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    aria-hidden="true"
+  >
+    <polyline
+      points="6 9 12 15 18 9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const ChevronDownIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-    <polyline points="6 9 12 15 18 9" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    aria-hidden="true"
+  >
+    <polyline
+      points="6 9 12 15 18 9"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -142,7 +171,11 @@ const BloodPressureChart = () => {
     <div className="bp-chart-card">
       <div className="bp-chart-card__header">
         <h3 className="bp-chart-card__title">Blood Pressure</h3>
-        <button className="bp-chart-card__filter" id="bp-filter-btn" aria-label="Filter blood pressure data">
+        <button
+          className="bp-chart-card__filter"
+          id="bp-filter-btn"
+          aria-label="Filter blood pressure data"
+        >
           Last 6 months <ChevronDownIcon />
         </button>
       </div>
@@ -161,7 +194,9 @@ const BloodPressureChart = () => {
               <div className="bp-legend-item__dot bp-legend-item__dot--systolic" />
               <span className="bp-legend-item__label">Systolic</span>
             </div>
-            <div className="bp-legend-item__value">{latestBloodPressure.systolic}</div>
+            <div className="bp-legend-item__value">
+              {latestBloodPressure.systolic}
+            </div>
             <div className="bp-legend-item__status">
               <ArrowUpIcon />
               {latestBloodPressure.systolicStatus}
@@ -176,7 +211,9 @@ const BloodPressureChart = () => {
               <div className="bp-legend-item__dot bp-legend-item__dot--diastolic" />
               <span className="bp-legend-item__label">Diastolic</span>
             </div>
-            <div className="bp-legend-item__value">{latestBloodPressure.diastolic}</div>
+            <div className="bp-legend-item__value">
+              {latestBloodPressure.diastolic}
+            </div>
             <div className="bp-legend-item__status">
               <ArrowDownIcon />
               {latestBloodPressure.diastolicStatus}

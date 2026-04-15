@@ -1,36 +1,35 @@
 import React from "react";
 import "../styles/DiagnosisHistory.css";
+import heartIcon from "../assets/HeartBPM1.svg";
 
 // ── Inline SVG Icons for stat cards ─────────────────────────
 
 const LungsIcon = () => (
   <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
-    <g transform="translate(18, 18)">
-      {/* Lungs illustration */}
+    <g transform="translate(18, 17)">
       <path
         d="M27 12c0-3.314-2.686-6-6-6s-6 2.686-6 6v4c-4.418 0-9 4-9 10 0 8 4 16 9 16h12V12z"
-        fill="none"
-        stroke="#5DADE2"
-        strokeWidth="2"
+        fill="#6FC8F0"
+        stroke="#072635"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
       <path
         d="M27 12c0-3.314 2.686-6 6-6s6 2.686 6 6v4c4.418 0 9 4 9 10 0 8-4 16-9 16H27V12z"
-        fill="none"
-        stroke="#5DADE2"
-        strokeWidth="2"
+        fill="#6FC8F0"
+        stroke="#072635"
+        strokeWidth="2.2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      {/* Trachea */}
-      <line x1="27" y1="6" x2="27" y2="12" stroke="#5DADE2" strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="27" y1="6" x2="27" y2="12" stroke="#072635" strokeWidth="2.6" strokeLinecap="round" />
       <path
         d="M21 6 Q27 3 33 6"
         fill="none"
-        stroke="#5DADE2"
-        strokeWidth="2.5"
+        stroke="#072635"
+        strokeWidth="2.6"
         strokeLinecap="round"
       />
     </g>
@@ -41,46 +40,19 @@ const ThermometerIcon = () => (
   <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
     <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
     <g transform="translate(27, 15)">
-      {/* Thermometer body */}
-      <rect x="13" y="0" width="10" height="40" rx="5" fill="none" stroke="#FF6B6B" strokeWidth="2" />
-      {/* Mercury fill */}
-      <rect x="15" y="20" width="6" height="20" rx="3" fill="#FF6B6B" />
-      {/* Bulb */}
-      <circle cx="18" cy="44" r="8" fill="#FF6B6B" />
-      <circle cx="18" cy="44" r="5" fill="#FF9999" />
-      {/* Scale marks */}
-      <line x1="23" y1="10" x2="27" y2="10" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="23" y1="18" x2="27" y2="18" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="23" y1="26" x2="27" y2="26" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round" />
-      <line x1="23" y1="34" x2="27" y2="34" stroke="#FF6B6B" strokeWidth="1.5" strokeLinecap="round" />
+      <rect x="13" y="0" width="10" height="40" rx="5" fill="#FFFFFF" stroke="#072635" strokeWidth="2.1" />
+      <rect x="15" y="16" width="6" height="24" rx="3" fill="#FF6B6B" />
+      <circle cx="18" cy="44" r="8.5" fill="#FF6B6B" stroke="#072635" strokeWidth="2.1" />
+      <line x1="23" y1="10" x2="29" y2="10" stroke="#072635" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="23" y1="17" x2="27" y2="17" stroke="#072635" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="23" y1="24" x2="29" y2="24" stroke="#072635" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="23" y1="31" x2="27" y2="31" stroke="#072635" strokeWidth="1.8" strokeLinecap="round" />
     </g>
   </svg>
 );
 
 const HeartRateIcon = () => (
-  <svg width="110" height="110" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="45" cy="45" r="45" fill="#FFFFFF" />
-    <g transform="translate(15, 18)">
-      {/* Heart */}
-      <path
-        d="M30 50 C10 36 6 24 10 18 C14 12 22 12 26 18 C28 20 30 22 30 22 C30 22 32 20 34 18 C38 12 46 12 50 18 C54 24 50 36 30 50z"
-        fill="none"
-        stroke="#FF4D88"
-        strokeWidth="2.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* EKG line */}
-      <polyline
-        points="6,34 14,34 18,26 22,42 26,30 30,34 34,34 38,28 42,38 46,34 54,34"
-        fill="none"
-        stroke="#FF4D88"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </g>
-  </svg>
+  <img src={heartIcon} alt="" aria-hidden="true" />
 );
 
 // arrow icons

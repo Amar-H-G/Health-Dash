@@ -6,8 +6,8 @@
   flex-direction: column;
   min-height: 100vh;
   background: var(--color-bg);
-  padding: 18px 18px 16px;
-  gap: 18px;
+  padding: 16px;
+  gap: 16px;
   overflow-y: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -20,7 +20,7 @@
 .layout__header,
 .layout__body {
   width: 100%;
-  max-width: 1600px;
+  max-width: 1810px;
   margin: 0 auto;
 }
 
@@ -30,8 +30,8 @@
 
 .layout__body {
   display: grid;
-  grid-template-columns: 320px minmax(0, 1fr) 320px;
-  gap: 24px;
+  grid-template-columns: 420px minmax(0, 1fr) 366px;
+  gap: 28px;
   align-items: start;
 }
 
@@ -46,19 +46,19 @@
 
 .layout__sidebar {
   position: sticky;
-  top: 18px;
-  height: calc(100vh - 110px);
+  top: 16px;
+  height: calc(100vh - 106px);
 }
 
 .layout__right {
   position: sticky;
-  top: 18px;
-  height: calc(100vh - 110px);
+  top: 16px;
+  height: calc(100vh - 106px);
 }
 
 @media (max-width: 1400px) {
   .layout__body {
-    grid-template-columns: 300px minmax(0, 1fr) 300px;
+    grid-template-columns: 320px minmax(0, 1fr) 320px;
     gap: 20px;
   }
 }

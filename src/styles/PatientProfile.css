@@ -6,12 +6,13 @@
   flex-direction: column;
   gap: 24px;
   min-width: 0;
+  height: 100%;
 }
 
 .profile-card {
   background: var(--color-white);
-  border-radius: 16px;
-  padding: 32px 20px 26px;
+  border-radius: 18px;
+  padding: 32px 28px 24px;
   box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
@@ -20,8 +21,8 @@
 }
 
 .profile-card__avatar-wrapper {
-  width: 200px;
-  height: 200px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   overflow: hidden;
   margin-bottom: 24px;
@@ -39,7 +40,7 @@
   font-size: 32px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  margin-bottom: 28px;
+  margin-bottom: 30px;
   line-height: 44px;
 }
 
@@ -47,7 +48,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 26px;
   text-align: left;
   margin-bottom: 30px;
 }
@@ -59,8 +60,8 @@
 }
 
 .profile-card__info-icon {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   background: #F6F7FB;
   border-radius: 50%;
   display: flex;
@@ -96,7 +97,7 @@
 
 .profile-card__btn {
   width: 100%;
-  max-width: 220px;
+  max-width: 228px;
   height: 41px;
   padding: 0 20px;
   background: var(--color-primary);
@@ -114,25 +115,29 @@
 
 .lab-results {
   background: var(--color-white);
-  border-radius: 16px;
-  padding: 20px 20px 16px;
+  border-radius: 18px;
+  padding: 24px 20px 20px;
   box-shadow: var(--shadow-card);
-  min-height: 296px;
+  min-height: 332px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 }
 
 .lab-results__title {
-  font-size: 30px;
+  font-size: 24px;
   font-weight: var(--fw-extrabold);
   color: var(--color-text-dark);
-  margin-bottom: 20px;
-  line-height: 41px;
+  margin-bottom: 22px;
+  line-height: 1.2;
 }
 
 .lab-results__list {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  max-height: 182px;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   scrollbar-gutter: stable;
   padding-right: 6px;
@@ -157,8 +162,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 40px;
-  padding: 9px 12px;
+  min-height: 44px;
+  padding: 10px 14px;
   border-radius: 10px;
   transition: background var(--transition-fast);
 }
