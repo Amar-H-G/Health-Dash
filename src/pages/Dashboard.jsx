@@ -8,7 +8,7 @@ import { usePatientData } from "../hooks/usePatientData";
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { patients, activePatient, loading, error } = usePatientData();
+  const { patients, activePatient, loading, error, setActivePatient } = usePatientData();
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -65,6 +65,7 @@ const Dashboard = () => {
             activePatientName={activePatient.name}
             isOpen={isSidebarOpen}
             onClose={() => setIsSidebarOpen(false)}
+            onSelectPatient={setActivePatient}
           />
         </div>
 

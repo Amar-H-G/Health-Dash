@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "../styles/Sidebar.css";
 import searchIcon from "../assets/search_FILL0_wght300_GRAD0_opsz24.svg";
 
-const Sidebar = ({ patients = [], activePatientName = "Jessica Taylor", isOpen = false, onClose = () => {} }) => {
+const Sidebar = ({ patients = [], activePatientName = "Jessica Taylor", isOpen = false, onClose = () => {}, onSelectPatient }) => {
   const listRef = useRef(null);
   const [scrollState, setScrollState] = useState({
     visible: false,
@@ -111,6 +111,13 @@ const Sidebar = ({ patients = [], activePatientName = "Jessica Taylor", isOpen =
                   role="listitem"
                   aria-selected={isActive}
                   aria-label={`${patient.name}, ${patient.gender}, ${patient.age}`}
+                  onClick={() => {
+                    if (onSelectPatient) {
+                      onSelectPatient(patient);
+                      if (window.innerWidth <= 767) onClose(); // Optionally auto-close the mobile sidebar
+                    }
+                  }}
+                  style={{ cursor: "pointer", transition: "background 0.2s ease" }}
                 >
                   <div className="sidebar__avatar-wrapper">
                     <img
