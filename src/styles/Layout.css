@@ -30,7 +30,7 @@
 
 .layout__body {
   display: grid;
-  grid-template-columns: 420px minmax(0, 1fr) 366px;
+  grid-template-columns: 300px minmax(0, 1fr) 280px;
   gap: 28px;
   align-items: start;
 }
