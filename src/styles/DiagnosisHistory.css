@@ -404,15 +404,7 @@
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1180px) {
-  .vitals-row {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 
-  .vitals-row .stat-card:last-child {
-    grid-column: 1 / -1;
-  }
-}
 
 @media (max-width: 767px) {
   .diagnosis-history {
@@ -454,9 +446,4 @@
   }
 }
 
-@media (max-width: 1180px) {
-  .diagnostic-panel {
-    height: 350px;
-    flex: none;
-  }
-}
+
